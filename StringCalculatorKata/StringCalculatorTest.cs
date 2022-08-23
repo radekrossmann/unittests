@@ -10,7 +10,6 @@ namespace StrincCalculatorKata
     {
         [TestCase("")]
         [TestCase(null)]
-        [Test]
         public void AddReturnZeroWhenSuppliedEmptyOrNullString(string numbers)
         {
             var result = StringCalculator.Add(numbers);
@@ -23,7 +22,6 @@ namespace StrincCalculatorKata
         [TestCase("2", 2)]
         [TestCase("3", 3)]
         [TestCase("0,1,2,3,4,555", 565)]
-        [Test]
         public void AddReturnNumberWhenSuppliedSingleNumberInString(string number, int expectedResult)
         {
             var result = StringCalculator.Add(number);
@@ -35,7 +33,6 @@ namespace StrincCalculatorKata
         [TestCase("3\n2", 5)]
         [TestCase("1\n2,3", 6)]
         [TestCase("1\n2\n3,4,5", 15)]
-        [Test]
         public void AddReturSumWhenSuppliedNumbersInStringWithNewLineAsDelimiter(string numbers, int expectedResult)
         {
             var result = StringCalculator.Add(numbers);
@@ -50,7 +47,6 @@ namespace StrincCalculatorKata
         [TestCase("0,3", 3)]
         [TestCase("0,3,2", 5)]
         [TestCase("0,3,3", 6)]
-        [Test]
         public void AddReturnSumWhenSuppliedMultipleNumbersInString(string numbers, int expectedResult)
         {
             var result = StringCalculator.Add(numbers);
@@ -60,7 +56,6 @@ namespace StrincCalculatorKata
 
         [TestCase("0,3,1001", 3)]
         [TestCase("0,3,1000", 1003)]
-        [Test]
         public void AddReturnSumByIgnoringMoreThanThousandWhenSuppliedMultipleNumbersInString(string numbers, int expectedResult)
         {
             var result = StringCalculator.Add(numbers);
@@ -71,7 +66,6 @@ namespace StrincCalculatorKata
         [TestCase("//*\n1*2", 3)]
         [TestCase("//;\n1;2", 3)]
         [TestCase("//;\n1;2;3;4;5;6;7;8;9;10", 55)]
-        [Test]
         public void AddWhenGivenDefinedDelimiterUsesThatDelimiter(string input, int expectation)
         {
             var result = StringCalculator.Add(input);
@@ -81,7 +75,6 @@ namespace StrincCalculatorKata
 
 
         [TestCase("1,-1", -1)]
-        [Test]
         public void AddThrowArgumentExceptionWhenSuppliedStringDoesNotMeetRule(string numbers, int beyondRuleNumber)
         {
             var exception = Assert.Throws<ArgumentException>(() => StringCalculator.Add(numbers));
