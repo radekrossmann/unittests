@@ -1,8 +1,8 @@
 using System;
 using NUnit.Framework;
-using StringCalculatorKata;
+using StringCalculator;
 
-namespace StrincCalculatorKata
+namespace StringCalculator.Tests
 {
     [TestFixture]
     [Category("StringCalculatorKata")]

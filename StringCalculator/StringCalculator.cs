@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace StringCalculatorKata
+namespace StringCalculator
 {
     public class StringCalculator
     {
