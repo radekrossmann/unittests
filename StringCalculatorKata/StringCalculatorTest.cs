@@ -39,7 +39,7 @@ namespace StringCalculator.Tests
             Assert.That(result, Is.EqualTo(expectedResult));
         }
 
-
+        [TestCase("3,3", 6)]
         [TestCase("0,1", 1)]
         [TestCase("0,1,1", 2)]
         [TestCase("0,2", 2)]
@@ -56,13 +56,16 @@ namespace StringCalculator.Tests
 
         [TestCase("0,3,1001", 3)]
         [TestCase("0,3,1000", 1003)]
+        [TestCase("1,2,3,4,5", 15)]
+        [TestCase("123,1000", 1123)]
         public void AddReturnSumByIgnoringMoreThanThousandWhenSuppliedMultipleNumbersInString(string numbers, int expectedResult)
         {
             var result = StringCalculator.Add(numbers);
             Assert.That(result, Is.EqualTo(expectedResult));
         }
 
-
+        [TestCase("/\n4\\2\\", 6)]
+        [TestCase("3//2;;/2\r", 7)]
         [TestCase("//*\n1*2", 3)]
         [TestCase("//;\n1;2", 3)]
         [TestCase("//;\n1;2;3;4;5;6;7;8;9;10", 55)]
@@ -75,6 +78,8 @@ namespace StringCalculator.Tests
 
 
         [TestCase("1,-1", -1)]
+        [TestCase("22,3", 2)]
+        [TestCase("-5,1", 6)]
         public void AddThrowArgumentExceptionWhenSuppliedStringDoesNotMeetRule(string numbers, int beyondRuleNumber)
         {
             var exception = Assert.Throws<ArgumentException>(() => StringCalculator.Add(numbers));
