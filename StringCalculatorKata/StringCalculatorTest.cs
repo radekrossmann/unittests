@@ -47,6 +47,7 @@ namespace StringCalculator.Tests
         [TestCase("0,3", 3)]
         [TestCase("0,3,2", 5)]
         [TestCase("0,3,3", 6)]
+        [TestCase("5,5,5", 15s)]
         public void AddReturnSumWhenSuppliedMultipleNumbersInString(string numbers, int expectedResult)
         {
             var result = StringCalculator.Add(numbers);
@@ -80,6 +81,7 @@ namespace StringCalculator.Tests
         [TestCase("1,-1", -1)]
         [TestCase("22,3", 2)]
         [TestCase("-5,1", 6)]
+        [TestCase("-10,1", 6)]
         public void AddThrowArgumentExceptionWhenSuppliedStringDoesNotMeetRule(string numbers, int beyondRuleNumber)
         {
             var exception = Assert.Throws<ArgumentException>(() => StringCalculator.Add(numbers));
